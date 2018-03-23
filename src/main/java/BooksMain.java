@@ -25,7 +25,7 @@ public class BooksMain {
 		
 		try {
 			entityManager.getTransaction().begin();
-			
+			entityManager.persist(books);
 			entityManager.getTransaction().commit();
 		} catch (Exception e) {
 			entityManager.getTransaction().rollback();
