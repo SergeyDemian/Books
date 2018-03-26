@@ -2,7 +2,6 @@ package main.java;
 
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import main.java.models.Books;
@@ -10,28 +9,30 @@ import main.java.models.Books;
 
 public class BooksMain {
 
-	public static void main(String [] args) {
 		
-		Books books = new Books();
-		books.setNameBook("First Book");
-		books.setAvtors("Terrie");
-		books.setGenre("Fantastic");
-		books.setYear(2011);
-		books.setDescription("whatsss");
-		
-		EntityManagerFactory entytyManFac = Persistence.createEntityManagerFactory("Books");
-		EntityManager entityManager = entytyManFac.createEntityManager();
+		static EntityManager entityManager = Persistence.createEntityManagerFactory("Books").createEntityManager();
 		
 		
-		try {
-			entityManager.getTransaction().begin();
-			entityManager.persist(books);
-			entityManager.getTransaction().commit();
-		} catch (Exception e) {
-			entityManager.getTransaction().rollback();
-		} finally {
-			entityManager.close();
-			entytyManFac.close();
+		public static String createNewBook(String nameBook, String avtor, int year, String genre, String discription){
+			try {
+				entityManager.getTransaction().begin();
+				Books books = new Books();
+				books.setNameBook(nameBook);
+				books.setAvtors(avtor);
+				books.setGenre(genre);
+				books.setYear(year);
+				books.setDescription(discription);
+				entityManager.persist(books);
+				entityManager.getTransaction().commit();
+			} catch (Exception e) {
+				entityManager.getTransaction().rollback();
+			} finally {
+				entityManager.close();
+			}
+		return " ";
 		}
-	}
+		
+
+		
+	
 }
