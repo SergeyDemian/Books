@@ -30,7 +30,7 @@ public class Books extends Model implements Serializable {
 			name = "YEAR",
 			nullable = false
 			)
-	private int year;
+	private String year;
 	
 	@Column(
 			name = "GENRE",
@@ -64,12 +64,12 @@ public class Books extends Model implements Serializable {
 		this.avtors = avtors;
 	}
 
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(int i) {
-		this.year = i;
+	public void setYear(String year2) {
+		this.year = year2;
 	}
 
 	public String getGenre() {

@@ -8,26 +8,11 @@ import main.java.models.Books;
 @ManagedBean
 public class BooksBean {
 	
-	private int id;
 	private String nameBook;
 	private String avtor;
 	private String year;
 	private String genre;
 	private String discription;
-	
-	
-	public BooksBean() {
-	}
-
-
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 
 	public String getNameBook() {
@@ -79,8 +64,9 @@ public class BooksBean {
 		this.discription = discription;
 	}
 	
-	public String addBook (Books nameBook, Books avtor, Books year, Books genre, Books discription){
-		return BooksMain.createNewBook(nameBook.getNameBook(), avtor.getAvtors(), year.getYear(), genre.getGenre(), discription.getDescription());
+	public String addBook (BooksBean booksBean){
+		return BooksMain.createNewBook(booksBean.getNameBook(),
+				booksBean.getAvtor(), booksBean.getYear(), booksBean.getGenre(), booksBean.getDiscription());
 		
 	}
 
