@@ -25,8 +25,9 @@
 <body>
 	<h1>Создание новой книги</h1>
 	<hr />
+	<h:form>
 	<table>
-		<tr>
+			<tr>
 			<td class="row">Название : </td>
 			<td><h:inputText value="#{booksBean.nameBook}" required="true"/></td>
 		</tr>
@@ -44,9 +45,10 @@
 		</tr>
 		<tr>
 			<td class="row">Описание :</td>
-			<td><h:inputTextarea cols="20" rows="5" value="#{booksBean.genre}" required="true"/></td>
-		</tr>	
+			<td><h:inputTextarea cols="20" rows="5" value="#{booksBean.discription}" required="true"/></td>
+		</tr>
 	</table>
 	<h:commandButton action= "#{booksBean.addBook(booksBean)}" value="Создать"/>
+	</h:form>
 </body>
 </html>
