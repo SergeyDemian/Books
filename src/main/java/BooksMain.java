@@ -10,16 +10,12 @@ import main.java.models.Books;
 
 public class BooksMain {
 
-	private static EntityManager entityManager = Persistence.createEntityManagerFactory("Books").createEntityManager();
-	private static EntityTransaction entityTransaction = entityManager.getTransaction();
-	
-	
-		
-		public static String createNewBook(String nameBook, String avtor, String year, String genre, String discription){
-			System.out.println(BooksMain.class);
+	static EntityManager entityManager = Persistence.createEntityManagerFactory("Books").createEntityManager();
+	static EntityTransaction entityTransaction = entityManager.getTransaction();
 			
+		public static String createNewBook(String nameBook, String avtor, String year, String genre, String discription){
 			try {
-				entityTransaction.begin();
+				if (!entityTransaction.isActive()) entityTransaction.begin();
 				Books books = new Books();
 				books.setNameBook(nameBook);
 				books.setAvtors(avtor);
@@ -33,7 +29,7 @@ public class BooksMain {
 			} finally {
 				entityManager.close();
 			}
-		return "/Librar.xhtml?faces-redirect=true";
+		return "Librar?faces-redirect=true";
 		}
 
 		

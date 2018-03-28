@@ -68,7 +68,6 @@ public class BooksBean {
 	}
 	
 	public String addBook(BooksBean booksBean){
-		
 		return BooksMain.createNewBook(booksBean.getNameBook(),
 				booksBean.getAvtor(), booksBean.getYear(), booksBean.getGenre(), booksBean.getDiscription());
 		
