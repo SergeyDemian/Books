@@ -10,12 +10,15 @@ import main.java.models.Books;
 
 public class BooksMain {
 
-	static EntityManager entityManager = Persistence.createEntityManagerFactory("Books").createEntityManager();
-	static EntityTransaction entityTransaction = entityManager.getTransaction();
+	//static EntityManager entityManager = Persistence.createEntityManagerFactory("Books").createEntityManager();
+//	static EntityTransaction entityTransaction = entityManager.getTransaction();
 			
 		public static String createNewBook(String nameBook, String avtor, String year, String genre, String discription){
+			
+			EntityManager entityManager = Persistence.createEntityManagerFactory("Books").createEntityManager();
+			EntityTransaction entityTransaction = entityManager.getTransaction();
 			try {
-				if (!entityTransaction.isActive()) entityTransaction.begin();
+				entityTransaction.begin();
 				Books books = new Books();
 				books.setNameBook(nameBook);
 				books.setAvtors(avtor);
