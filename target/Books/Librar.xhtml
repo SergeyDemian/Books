@@ -1,12 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=1251" />
+<h:outputStylesheet library="css" name="bootstrap.min.css" />    
 <title>My JSF</title>
+<style type="text/css">
+	.tableUpdate {
+		width: 90 % !important;
+		margin: 17px 58px 0 !important;
+		}
+</style>
 </head>
 <h:body>
+	<h:form>
+		<h:dataTable binding="#{table}" value="#{booksBean.getBooks()}" var="books" styleClass="table table-striped table-bordered tableUpdated">
+			<h:column>
+				<f:facet name = "header">Id</f:facet>
+				<h:outputText value = "#{books.id}"/>
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Name Book</f:facet>
+				<h:outputText value = "#{books.nameBook}"/>
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Avtor</f:facet>
+				<h:outputText value = "#{books.avtors}"/>
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Year</f:facet>
+				<h:outputText value = "#{books.year}"/>
+			</h:column>	
+			<h:column>
+				<f:facet name = "header">Genre</f:facet>
+				<h:outputText value = "#{books.genre}"/>
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Discription</f:facet>
+				<h:outputText value = "#{books.description}"/>
+			</h:column>			
+		</h:dataTable>
+	</h:form>
 	<h:outputLabel value="Создание книги" />
 	<h:form>
 		<h:commandButton action = "Book?faces-redirect=true" value = "Create" />
