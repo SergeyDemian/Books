@@ -21,22 +21,22 @@ public class Model implements Serializable {
 			name = "ID",
 			unique = true
 			)
-	private Long id;
+	private int id;
 
 	public Model() {
 		super();
 	}
 
-	public Model(Long id) {
+	public Model(int id) {
 		super();
 		this.id = id;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	

@@ -87,10 +87,11 @@ public class BooksBean {
 	}
 	
 	public List getBooks(){
-		for (Books boString : BooksMain.getAllBook()){
-			System.out.print(boString.getNameBook() + "  ");
-		}
 		return BooksMain.getAllBook();
+	}
+	
+	public String deleteBook (int id){
+		return BooksMain.deleteBook(id);
 	}
 
 }

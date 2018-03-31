@@ -40,7 +40,11 @@
 			<h:column>
 				<f:facet name = "header">Discription</f:facet>
 				<h:outputText value = "#{books.description}"/>
-			</h:column>			
+			</h:column>	
+			<h:column>
+				<f:facet name = "header">Delete</f:facet>
+				<h:commandButton value = "Delete" action="#{booksBean.deleteBook(books.id)}" />
+			</h:column>						
 		</h:dataTable>
 	</h:form>
 	<h:outputLabel value="Создание книги" />
